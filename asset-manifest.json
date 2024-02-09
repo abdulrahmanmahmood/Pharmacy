@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/pharmacy/static/css/main.7fc445a6.css",
+    "main.js": "/pharmacy/static/js/main.16ab7db4.js",
+    "static/js/787.15e37750.chunk.js": "/pharmacy/static/js/787.15e37750.chunk.js",
+    "static/media/slider1.png": "/pharmacy/static/media/slider1.006f0102d809607b3bc0.png",
+    "static/media/slider2.png": "/pharmacy/static/media/slider2.ef3f8ab3f548ad59b7de.png",
+    "static/media/myimg.png": "/pharmacy/static/media/myimg.09bdd0e5555d5adbee77.png",
+    "static/media/blog.png": "/pharmacy/static/media/blog.a50e1e871a6e5de5169f.png",
+    "static/media/carousel.png": "/pharmacy/static/media/carousel.dca39eeeb0d4369e68c3.png",
+    "static/media/lotion.png": "/pharmacy/static/media/lotion.03d95b0175407c4ed141.png",
+    "static/media/lotion2.png": "/pharmacy/static/media/lotion2.f241b5c1fd7ef4dfe29e.png",
+    "static/media/Vita Logo2.png": "/pharmacy/static/media/Vita Logo2.04658a8b7b775128f751.png",
+    "static/media/product.png": "/pharmacy/static/media/product.2e4bc1dbdd42b81d6956.png",
+    "index.html": "/pharmacy/index.html",
+    "main.7fc445a6.css.map": "/pharmacy/static/css/main.7fc445a6.css.map",
+    "main.16ab7db4.js.map": "/pharmacy/static/js/main.16ab7db4.js.map",
+    "787.15e37750.chunk.js.map": "/pharmacy/static/js/787.15e37750.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7fc445a6.css",
+    "static/js/main.16ab7db4.js"
+  ]
+}

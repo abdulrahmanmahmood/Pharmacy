@@ -251,7 +251,9 @@ function Home() {
   const handleProductClick = (productId) => {
     navigate(`/home/product/${productId}`);
   };
-
+  const gotoAndroidStore =()=>{
+    
+  }
 
   return (
 <div className=" items-center text-center fixed w-full">

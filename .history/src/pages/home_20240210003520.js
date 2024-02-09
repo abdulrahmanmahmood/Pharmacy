@@ -251,15 +251,17 @@ function Home() {
   const handleProductClick = (productId) => {
     navigate(`/home/product/${productId}`);
   };
-
+  const gotoAndroidStore =()=>{
+    
+  }
 
   return (
-<div className=" items-center text-center fixed w-full">
-  <div className="  w-full  h-[90vh] mt-10 text-green-500  bg-white   lg:hidden ">
+<div className=" items-center text-center fixed">
+  <div className=" outline-dashed w-full  h-[90vh] mt-10 text-green-500  bg-white   md:hidden ">
 
     <h3 className="py-10  items-center text-center text-rap mt-10  ">Experience our app for a better mobile experience!</h3>
     <h3>Download now from the App Store or Google Play Store.</h3>
-  <div className="w-20 h-20 mx-auto items-center mt-10 " >
+  <div className="w-20 h-20 mx-auto items-center mt-10 " onClick={gotoAndroidStore}>
       <IoLogoGooglePlaystore className="w-20 h-20  text-green-500 rounded-md pl-1  bg-slate-600"/> 
   </div>
   <div className="w-20 h-20 mx-auto items-center mt-10 ">

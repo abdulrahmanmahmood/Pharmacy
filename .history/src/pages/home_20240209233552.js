@@ -11,10 +11,6 @@ import axios from "axios";
 import { Link, Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { IoLogoGooglePlaystore  } from  "react-icons/io5";
-import { IoMdAppstore } from "react-icons/io";
-
-
 import {
   setLanguage,
   selectLanguage,
@@ -252,197 +248,181 @@ function Home() {
     navigate(`/home/product/${productId}`);
   };
 
-
   return (
-<div className=" items-center text-center fixed w-full">
-  <div className="  w-full  h-[90vh] mt-10 text-green-500  bg-white   lg:hidden ">
+    <div className="page-container">
+      <NavHeader
+        userId={userId}
+        searchTermm={searchTerm}
+        handleSearchChange={handleSearchChange}
+        //filteredProductss={filteredProducts}
+        handleProductClick={handleProductClick}
+      />
 
-    <h3 className="py-10  items-center text-center text-rap mt-10  ">Experience our app for a better mobile experience!</h3>
-    <h3>Download now from the App Store or Google Play Store.</h3>
-  <div className="w-20 h-20 mx-auto items-center mt-10 " >
-      <IoLogoGooglePlaystore className="w-20 h-20  text-green-500 rounded-md pl-1  bg-slate-600"/> 
-  </div>
-  <div className="w-20 h-20 mx-auto items-center mt-10 ">
-      <IoMdAppstore  className="w-20 h-20  text-green-500 rounded-md   bg-slate-600"/> 
-  </div>
-
-
-  </div>
-      <div className="page-container">
-        <NavHeader
-          userId={userId}
-          searchTermm={searchTerm}
-          handleSearchChange={handleSearchChange}
-          //filteredProductss={filteredProducts}
-          handleProductClick={handleProductClick}
-        />
-  
-        <div className="green-containerr">
-          <div className="home-containerr testtt">
-            <Slider />
-            <div className="titleProduct">
-              <h1>{translations[language]?.magasin}</h1>
-              <h2>{translations[language]?.learnmore}</h2>
-            </div>
-            {loading && (
-              <div
-                className="loading-spinner"
-                style={{ width: "50px", height: "50px", marginTop: "10px" }}
-              ></div>
-            )}
-            {!loading && (
-              <div className="card-container">
-                {products.map((product) => (
-                  <div
-                    style={{
-                      borderRadius: "15%",
-                      backgroundColor: "#fff",
-                      marginBottom: "10px",
-                      boxShadow: "5px 5px 5px #8080809e",
-                    }}
-                    className="card"
-                    key={product.id}
-                  >
-                    <div className="card-body">
-                      <div className="card-icons">
-                        <FaHeart
-                          onClick={() => handleAddToFavorites(product.productId)}
-                          style={{
-                            color: isProductInWishlist(product.productId)
-                              ? "red"
-                              : "#3EBF87",
-                          }}
-                        />
-  
-                        <FaEye
-                          className="cart-iconPro"
-                          onClick={() => handleDetailsClick(product)}
-                        />
-                      </div>
-                      <div className="card-imgstore">
-                        <Link to={`/home/product/${product.productId}`}>
-                          <img src={product.pictureUrl} alt="Product poster" />
-                        </Link>
-                      </div>
-                      <div className=" card-infoStore">
-                        <h2>{product.name}</h2>
-  
-                        <div className="rate">
-                          {isLoggedIn && (
-                            <StarRating
-                              initialRating={product.rating}
-                              isClickable={false}
-                            />
-                          )}
-                        </div>
-                        <div className="price">
-                          {product.discount && (
-                            <div className="discounted-price">{`$${product.afterDiscount}`}</div>
-                          )}
-                          {product.discount && (
-                            <div className="old-price">{`$${product.price}`}</div>
-                          )}
-                          {!product.discount && (
-                            <div className="price">{`$${product.price}`}</div>
-                          )}
-                        </div>
-                      </div>
-                      <button
-                        className="proBtn"
-                        onClick={() =>
-                          handleAddToCart(product.productId, product)
-                        }
-                      >
-                        add to cart
-                      </button>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
+      <div className="green-containerr">
+        <div className="home-containerr testtt">
+          <Slider />
+          <div className="titleProduct">
+            <h1>{translations[language]?.magasin}</h1>
+            <h2>{translations[language]?.learnmore}</h2>
           </div>
-  
-          <div className="footerr footerPhr">
-            <div className=" header-container ">
-              <div className="flexFooter">
-                <div className="cartfooter">
-                  <div className="important">
-                    <h1>important links</h1>
-                    <Link className="footerlink">privacy policy </Link>
-                    <Link className="footerlink">cookies policy </Link>
-                    <Link className="footerlink">Terms & conditions </Link>
-                  </div>
-                  <div className="information">
-                    <h1>Informations sur la livraison</h1>
-                    <h2>
-                      Informations d'expédition Pour garantir que vos achats
-                      arrivent sans problème, assurez-vous de fournir l'adresse et
-                      le numéro de téléphone corrects pour garantir une expérience
-                      d'achat pratique et efficace. Assurez-vous que vos
-                      informations d'expédition sont à jour, y compris les détails
-                      de l'adresse et le délai de livraison souhaité, pour vous
-                      assurer de recevoir votre commande rapidement et sans
-                      retards inutiles.
-                    </h2>
+          {loading && (
+            <div
+              className="loading-spinner"
+              style={{ width: "50px", height: "50px", marginTop: "10px" }}
+            ></div>
+          )}
+          {!loading && (
+            <div className="card-container">
+              {products.map((product) => (
+                <div
+                  style={{
+                    borderRadius: "15%",
+                    backgroundColor: "#fff",
+                    marginBottom: "10px",
+                    boxShadow: "5px 5px 5px #8080809e",
+                  }}
+                  className="card"
+                  key={product.id}
+                >
+                  <div className="card-body">
+                    <div className="card-icons">
+                      <FaHeart
+                        onClick={() => handleAddToFavorites(product.productId)}
+                        style={{
+                          color: isProductInWishlist(product.productId)
+                            ? "red"
+                            : "#3EBF87",
+                        }}
+                      />
+
+                      <FaEye
+                        className="cart-iconPro"
+                        onClick={() => handleDetailsClick(product)}
+                      />
+                    </div>
+                    <div className="card-imgstore">
+                      <Link to={`/home/product/${product.productId}`}>
+                        <img src={product.pictureUrl} alt="Product poster" />
+                      </Link>
+                    </div>
+                    <div className=" card-infoStore">
+                      <h2>{product.name}</h2>
+
+                      <div className="rate">
+                        {isLoggedIn && (
+                          <StarRating
+                            initialRating={product.rating}
+                            isClickable={false}
+                          />
+                        )}
+                      </div>
+                      <div className="price">
+                        {product.discount && (
+                          <div className="discounted-price">{`$${product.afterDiscount}`}</div>
+                        )}
+                        {product.discount && (
+                          <div className="old-price">{`$${product.price}`}</div>
+                        )}
+                        {!product.discount && (
+                          <div className="price">{`$${product.price}`}</div>
+                        )}
+                      </div>
+                    </div>
+                    <button
+                      className="proBtn"
+                      onClick={() =>
+                        handleAddToCart(product.productId, product)
+                      }
+                    >
+                      add to cart
+                    </button>
                   </div>
                 </div>
-                <div className="cartfooter cartfootertwo">
-                  <div className="important">
-                    <h1>coordonnées</h1>
-                    <h2>
-                      Contactez-nous pour toute demande de renseignements ou
-                      d'assistance dont vous avez besoin, nous sommes là pour vous
-                      fournir soutien et conseils
-                    </h2>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <div className="footerr footerPhr">
+          <div className=" header-container ">
+            <div className="flexFooter">
+              <div className="cartfooter">
+                <div className="important">
+                  <h1>important links</h1>
+                  <Link className="footerlink">privacy policy </Link>
+                  <Link className="footerlink">cookies policy </Link>
+                  <Link className="footerlink">Terms & conditions </Link>
+                </div>
+                <div className="information">
+                  <h1>Informations sur la livraison</h1>
+                  <h2>
+                    Informations d'expédition Pour garantir que vos achats
+                    arrivent sans problème, assurez-vous de fournir l'adresse et
+                    le numéro de téléphone corrects pour garantir une expérience
+                    d'achat pratique et efficace. Assurez-vous que vos
+                    informations d'expédition sont à jour, y compris les détails
+                    de l'adresse et le délai de livraison souhaité, pour vous
+                    assurer de recevoir votre commande rapidement et sans
+                    retards inutiles.
+                  </h2>
+                </div>
+              </div>
+              <div className="cartfooter cartfootertwo">
+                <div className="important">
+                  <h1>coordonnées</h1>
+                  <h2>
+                    Contactez-nous pour toute demande de renseignements ou
+                    d'assistance dont vous avez besoin, nous sommes là pour vous
+                    fournir soutien et conseils
+                  </h2>
+                </div>
+                <div className="address">
+                  <div className="flexaddress">
+                    <img src={address} />
+                    <h2>l'adresse:</h2>
+                  </div>
+                  <h2>
+                    LAAYOUNE : MADINAT EL WAHDA BLOC B NR 91 LAAYOUNE (M) <br />
+                    Tetouan: Mezanine bloc B Bureau n 4 BOROUJ 16 Avenue des Far
+                    N° 873 Tétouan
+                  </h2>
+                </div>
+                <div className="flexphoneemail">
+                  <div className="address">
+                    <div className="flexaddress">
+                      <img src={phone} />
+                      <h2>Phone:</h2>
+                    </div>
+                    <h2>00212689831227</h2>
                   </div>
                   <div className="address">
                     <div className="flexaddress">
-                      <img src={address} />
-                      <h2>l'adresse:</h2>
+                      <img src={email} />
+                      <h2>Email:</h2>
                     </div>
-                    <h2>
-                      LAAYOUNE : MADINAT EL WAHDA BLOC B NR 91 LAAYOUNE (M) <br />
-                      Tetouan: Mezanine bloc B Bureau n 4 BOROUJ 16 Avenue des Far
-                      N° 873 Tétouan
-                    </h2>
-                  </div>
-                  <div className="flexphoneemail">
-                    <div className="address">
-                      <div className="flexaddress">
-                        <img src={phone} />
-                        <h2>Phone:</h2>
-                      </div>
-                      <h2>00212689831227</h2>
-                    </div>
-                    <div className="address">
-                      <div className="flexaddress">
-                        <img src={email} />
-                        <h2>Email:</h2>
-                      </div>
-                      <h2>contact@vitaparapharma.com</h2>
-                    </div>
+                    <h2>contact@vitaparapharma.com</h2>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <DetailsDialog
-          isOpen={detailsOpen}
-          onCancel={handleCancelDetails}
-          product={selectedProduct}
-          rating={rating}
-        />
-        <Modal show={showModal} onHide={handleCloseModal}>
-          <Modal.Body>{modalMessage}</Modal.Body>
-          <Modal.Footer>
-            <Button variant="primary" onClick={handleCloseModal}>
-              Close
-            </Button>
-          </Modal.Footer>
-        </Modal>
       </div>
-</div>
+      <DetailsDialog
+        isOpen={detailsOpen}
+        onCancel={handleCancelDetails}
+        product={selectedProduct}
+        rating={rating}
+      />
+      <Modal show={showModal} onHide={handleCloseModal}>
+        <Modal.Body>{modalMessage}</Modal.Body>
+        <Modal.Footer>
+          <Button variant="primary" onClick={handleCloseModal}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </div>
   );
 }
 

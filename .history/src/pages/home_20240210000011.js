@@ -11,10 +11,6 @@ import axios from "axios";
 import { Link, Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { IoLogoGooglePlaystore  } from  "react-icons/io5";
-import { IoMdAppstore } from "react-icons/io";
-
-
 import {
   setLanguage,
   selectLanguage,
@@ -252,20 +248,12 @@ function Home() {
     navigate(`/home/product/${productId}`);
   };
 
-
   return (
-<div className=" items-center text-center fixed w-full">
-  <div className="  w-full  h-[90vh] mt-10 text-green-500  bg-white   lg:hidden ">
+<div className="relative items-center text-center ">
+  <div className=" items-center text-center w-[90%] ml-5 sm:ml-10 h-[90vh] my-10 rounded-2xl  bg-slate-400 absolute z-50 md:hidden ">
 
-    <h3 className="py-10  items-center text-center text-rap mt-10  ">Experience our app for a better mobile experience!</h3>
-    <h3>Download now from the App Store or Google Play Store.</h3>
-  <div className="w-20 h-20 mx-auto items-center mt-10 " >
-      <IoLogoGooglePlaystore className="w-20 h-20  text-green-500 rounded-md pl-1  bg-slate-600"/> 
-  </div>
-  <div className="w-20 h-20 mx-auto items-center mt-10 ">
-      <IoMdAppstore  className="w-20 h-20  text-green-500 rounded-md   bg-slate-600"/> 
-  </div>
-
+    <h3 className="py-20 items-center text-center text-rap">We recommend to Use Our Mobile Application</h3>
+    <h3>Download from Here </h3>
 
   </div>
       <div className="page-container">

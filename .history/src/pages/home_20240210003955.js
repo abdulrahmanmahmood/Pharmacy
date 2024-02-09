@@ -250,8 +250,9 @@ function Home() {
 
   const handleProductClick = (productId) => {
     navigate(`/home/product/${productId}`);
-  };
-
+  }=()=>{
+    
+  }
 
   return (
 <div className=" items-center text-center fixed w-full">
